@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8BC34A"
+
+    android:background="#CDDC39"
     tools:context=".MainActivity">
 
     <TextView
@@ -33,10 +35,10 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:background="#F16686"
+        android:background="#00000000"
         android:gravity="center"
         android:text="KIBABII UNIVERSITY COFFEE SHOP"
-        android:textColor="#FFFFFF"
+        android:textColor="#FCFCFD"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView_topping"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -89,7 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_topping" />
 
     <CheckBox
         android:id="@+id/checkBox2"

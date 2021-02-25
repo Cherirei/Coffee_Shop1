@@ -1,10 +1,14 @@
 package com.example.coffeeshop;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     String enter_name;
     CheckBox checkBox_samosa, checkBox_cake;
     String topping;
+    ConstraintLayout main;
+    TextView tops;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         edit_text=findViewById(R.id.editText);
         checkBox_samosa=findViewById(R.id.checkBox);
         checkBox_cake=findViewById(R.id.checkBox2);
+        main=findViewById(R.id.Main);
+        tops=findViewById(R.id.textView_topping);
     }
     public  void minus(View view)
     {
@@ -67,17 +75,17 @@ public class MainActivity extends AppCompatActivity {
     {
     if (checkBox_samosa.isChecked() && checkBox_cake.isChecked())
     {topping = "Samosa and Cake";
-        Toast.makeText(getApplicationContext(), "You have checked two products", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "You have checked two products", Toast.LENGTH_SHORT).show();
     }
     else if (checkBox_samosa.isChecked())
     {
         topping = "Samosa";
-        Toast.makeText(getApplicationContext(), "You have checked tamotaaa", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "You have checked tamotaaa", Toast.LENGTH_SHORT).show();
     }
     else if(checkBox_cake.isChecked())
     {
         topping = "Cake";
-        Toast.makeText(getApplicationContext(), "You have checked Cake", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "You have checked Cake", Toast.LENGTH_SHORT).show();
     }
     else
     {
@@ -110,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     public  void email(String order)
     {
         String[] cars={"johkirwa17@gmail.com"};
-        String[] me={"johnkirwa2017@gmail.com","stephenmaingi2017@gmail.com"};
+        String[] me={"johnkirwa2017@gmail.com","ochikoalwenje@gmail.com"};
         Intent intent= new Intent(Intent.ACTION_SEND);
         intent.setData(Uri.parse("mailto:"));
         intent.setType("text/plain");
@@ -123,5 +131,47 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menuitems,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.clear:
+                Toast.makeText(getApplicationContext(), "You have Cleared", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.teal:
+                main.setBackgroundColor(getResources().getColor(R.color.teal));
+            return true;
+            case R.id.magenta:
+                main.setBackgroundColor(getResources().getColor(R.color.magenta));
+                return true;
+            case R.id.cyan:
+                main.setBackgroundColor(getResources().getColor(R.color.cyan));
+                return true;
+            case R.id.silver:
+                main.setBackgroundColor(getResources().getColor(R.color.silver));
+                return true;
+
+            case R.id.hide_toppings:
+                checkBox_cake.setVisibility(View.GONE);
+                checkBox_samosa.setVisibility(View.GONE);
+                tops.setVisibility(View.GONE);
+                return true;
+            case R.id.show_toppings:
+                checkBox_cake.setVisibility(View.VISIBLE);
+                checkBox_samosa.setVisibility(View.VISIBLE);
+                tops.setVisibility(View.VISIBLE);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
 
 }

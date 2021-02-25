@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="Clear"
+        android:id="@+id/clear"
+        app:showAsAction="ifRoom">
+    </item>
+
+    <item android:title="Background"
+        android:id="@+id/background"
+       >
+        <menu>
+            <item android:title="Teal"
+                android:id="@+id/teal">
+            </item>
+            <item android:title="Cyan"
+                android:id="@+id/cyan"
+                >
+
+            </item>
+            <item android:title="magenta"
+                android:id="@+id/magenta"
+                >
+
+            </item>
+            <item android:title="Silver"
+                android:id="@+id/silver"
+                >
+
+            </item>
+        </menu>
+    </item>
+    <item android:title="Hide Toppings"
+        android:id="@+id/hide_toppings">
+
+    </item>
+    <item android:title="Show Toppings"
+        android:id="@+id/show_toppings"
+      >
+    </item>
+
+</menu>
